@@ -38,14 +38,11 @@ export class CarsController {
         @Body() updateCarDto: UpdateCarDto ){
 
         return this.carsService.update(id, updateCarDto);
-        
+
     }
     
     @Delete(':id')
-    deleteCar( @Param('id', ParseUUIDPipe ) id: number){
-        return {
-            method: 'Delete',
-            id
-        };
+    deleteCar( @Param('id', ParseUUIDPipe ) id: string){
+        return this.carsService.delete(id);
     }
 }
